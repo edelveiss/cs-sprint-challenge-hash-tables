@@ -6,7 +6,15 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    result = []
+    # using dictionary for queries
+    q_dict = {key for i, key in enumerate(queries)}
+
+    for el in files:
+        split_el = el.split("/")
+        if split_el[-1] in q_dict:
+            result.append(el)
+
 
     return result
 
