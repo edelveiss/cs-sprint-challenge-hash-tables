@@ -12,10 +12,10 @@ def reconstruct_trip(tickets, length):
     # memory allocation for output array
     route = [None]*length
     # using a dictionary, where key is a source, value i a destination
-    hash_table = {}
+    hash_table = {ticket.source:ticket.destination for i, ticket in enumerate(tickets)}
 
-    for i in range(length):
-        hash_table[tickets[i].source] = tickets[i].destination
+    # for i in range(length):
+    #     hash_table[tickets[i].source] = tickets[i].destination
 
     # writing the first element of route with source NONE
     route[0] = hash_table["NONE"]

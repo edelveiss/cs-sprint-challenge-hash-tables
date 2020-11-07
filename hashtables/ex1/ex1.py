@@ -2,7 +2,7 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
-    # dict_weights = {print(f"{x}:{i}") for i, x in enumerate(weights)}
+    # using dictionary for weights, storing each weight's list index as its value, since we should return  the indices of weights
     dict_weights = {}
 
     for i in range(len(weights)):
