@@ -2,8 +2,17 @@ def has_negatives(a):
     """
     YOUR CODE HERE
     """
-    # Your code here
-
+    
+    set_num = set()
+    result = []
+    
+    for i in range(len(a)):
+        n = abs(a[i])
+        if n in set_num:
+            result.append(n)
+        else:
+            set_num.add(n)
+            
     return result
 
 

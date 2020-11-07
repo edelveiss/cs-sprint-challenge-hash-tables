@@ -23,11 +23,32 @@ Commit your code regularly and meaningfully. This practice helps both you (in ca
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your answers beforehand.
 
 1. Hashing functions
+   A hash function is any function that can be used to map data. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. The values are used to index a fixed-size table called a hash table. Use of a hash function to index a hash table is called hashing.
+
+Hash functions and their associated hash tables are used in data storage and retrieval applications to access data in a small and nearly constant time per retrieval, and storage space only fractionally greater than the total space required for the data or records themselves.
+
 2. Collision resolution
+   When one or more hash values compete with a single hash table slot, collisions occur. To resolve this, the next available empty slot is assigned to the current hash value. The most common methods are chaining, probabilistic hashing, perfect hashing technique.
+   Chaining: This technique implements a linked list
+
 3. Performance of basic hash table operations
-4. Load factor
+   In the worst case, search, insertion, and deletion operations take linear time (O(n)) and are not constant. The worst case would be if every hash table entry were placed inside the linked list that was referenced by a single index.
+   However, the average case is still constant time (O(1)).
+
+4. Load factor is the number of items stored in the hash table divided by the number of slots. If you use linear probing for collision resolution, then the maximum load factor is 1. If you use chaining for collision resolution, then the load factor can be greater than 1.
+   The general rule of thumb is to resize your hash table when your load factor is greater than 0.7.
+
 5. Automatic resizing
+   As the load factor of your hash table increases, so does the likelihood of a collision, which reduces the performance of your hash table. Therefore, you need to monitor the load factor and resize your hash table when the load factor gets too large. The general rule of thumb is to resize your hash table when your load factor is greater than 0.7. Also, when you resize, it is common to double the size of the hash table. When you resize the array, you need to re-insert all of the items into this new hash table. You cannot simply copy the old items into the new hash table. Each item has to be rerun through the hashing function because the hashing function takes into account the size of the hash table when determining the index that it returns.
+
 6. Various use cases for hash tables
+   By default hash-tables are non-ordered structures - which means the items don’t get accessed in the order they get inserted. So the use cases are :
+
+- Storing anything where you need access based on a non integer
+- Storing anything where there is no need to access data in the order the data is inserted.
+- Storage where insertion and access both need to be fast.
+- Storage where uniqueness is useful.
+- Text index into flatter data structures - use a hashtable to index data items in an array/list.
 
 We expect you to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -55,7 +76,7 @@ For each problem that you choose to solve, complete the following:
 - [ ] Implement your solution in the `.py` skeleton file
 - [ ] Make sure your code passes the tests running the test script with make tests
 
-*Note: For these exercises, we expect you to use Python's built-in `dict` as a hashtable. That said, if you wish, you can attempt to solve using your own hashtable implementation, as well. All solutions should utilize a `dict` or hashtable. You should not use Sets. (Though you can make a `dict` behave like a set if you wish.)*
+_Note: For these exercises, we expect you to use Python's built-in `dict` as a hashtable. That said, if you wish, you can attempt to solve using your own hashtable implementation, as well. All solutions should utilize a `dict` or hashtable. You should not use Sets. (Though you can make a `dict` behave like a set if you wish.)_
 
 ### Task 3: Stretch Goals
 
@@ -68,6 +89,6 @@ After finishing your required elements, you can push your work further. These go
 
 Follow these steps to complete your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete after receiving your pull-request
