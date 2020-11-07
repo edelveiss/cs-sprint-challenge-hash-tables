@@ -2,7 +2,19 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    from collections import defaultdict
+    #using a dictionary, key is a number, value is a sum of occurances in all arrays
+    num_dict = defaultdict(int)
+    # result array for output
+    result = []
+
+    for sub_array in arrays:
+        for el in sub_array:
+            # counting the occurances of the same numbers
+            num_dict[el] +=1
+            if num_dict[el] >= len(arrays):
+                result.append(el)
+    
 
     return result
 
